@@ -110,3 +110,7 @@ FontDrawer は、HTML5 Canvas を使用したフォント作成ツールで、�
 もしこのツールが役に立ったと思われたら、ぜひ寄付をお願いします！
 
 [PayPal](https://www.paypal.com/paypalme/buttaiwan) または [台湾ドル建てのクレジット決済](https://p.ecpay.com.tw/930AED7) が可能です。
+
+# 简体中文
+
+Simplified Chinese test build.
