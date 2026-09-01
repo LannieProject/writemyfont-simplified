@@ -64,7 +64,7 @@ def read_list fn, ctype, col=nil
 		uni = tmp[2] != '' ? tmp[2].to_i(16) : nil
 		next if col && tmp[col] != 'V'
 
-		if uni && ctype == :H		# 漢字		 && !$nicenames[uni]
+		if uni && [:H, :HS].include?(ctype)		# 漢字		 && !$nicenames[uni]
 			gname = sprintf(uni <= 0xffff ? 'uni%04X' : 'u%05X', uni)
 			$glist[gname] = GlyphInfo.new(gname, seq, '全形')
 			$glist[gname].cnt = $zhorder[seq]
@@ -121,7 +121,11 @@ def read_list fn, ctype, col=nil
 	f.close
 
 	#list.sort_by { |k, v| k }.map { |k, v| v }
-	ctype == :H ? list.sort_by { |k, v| -$glist[v].cnt }.map { |k, v| v } : list.sort_by { |k, v| k }.map { |k, v| v }
+	if ctype == :H
+		list.sort_by { |k, v| -$glist[v].cnt }.map { |k, v| v }
+else
+		list.sort_by { |k, v| k }.map { |k, v| v }
+end
 
 	#list.size > 0 ? list : nil
 end
@@ -145,7 +149,8 @@ result_tmp = {
 	'粵語包-符號' => read_list('sym_ext.txt', :S, 8),
 	'命名包-漢字' => read_list('han_ext.txt', :H, 7),
 	'命名包-符號' => read_list('sym_ext.txt', :S, 9),
-	'補充符號包' => read_list('sym_ext.txt', :S, 10)
+	'補充符號包' => read_list('sym_ext.txt', :S, 10),
+	'简体测试字-50' => read_list('hans_test50.txt', :HS)
 }
 
 result_tmp['附表：台文全羅'] = verybaselist + result_tmp['本土包-符號']
