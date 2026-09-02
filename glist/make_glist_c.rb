@@ -115,12 +115,13 @@ level2 = read_list('hans_level2.txt', :HS)
 level3 = read_list('hans_level3.txt', :HS)
 
 result_tmp = {
-	'基础字' => baselist,
-	'基本符号' => read_list('sym_base.txt', :S),
-	'简体测试字-50' => read_list('hans_test50.txt', :HS),
-	'常用字-3500' => level1,
-	'扩展字-6500' => (level1 + level2).uniq,
-	'完整规范-8105' => (level1 + level2 + level3).uniq,
+    '基础字' => baselist,
+    '基本符号' => read_list('sym_base.txt', :S),
+    '简体测试字-50' => read_list('hans_test50.txt', :HS),
+
+    '一级字-3500' => level1,
+    '二级字-3000' => level2,
+    '三级字-1605' => level3,
 }
 
 $glist = $glist.sort_by { |k, v| v.sort_val }.to_h
