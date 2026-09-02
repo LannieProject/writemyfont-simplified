@@ -309,7 +309,7 @@ async function createFont(glyphs, gidMap, verts, ccmps) {
 		designer: 'Lannie',
 		designerURL: 'https://github.com/LannieProject',
 		manufacturer: 'Lannie',
-		manufacturerURL: 'https://github.com/LannieProject',,
+		manufacturerURL: 'https://github.com/LannieProject',
 
 		unitsPerEm: upm,
 		ascender: 880,
