@@ -123,9 +123,9 @@ def read_list fn, ctype, col=nil
 	#list.sort_by { |k, v| k }.map { |k, v| v }
 	if ctype == :H
 		list.sort_by { |k, v| -$glist[v].cnt }.map { |k, v| v }
-else
+	else
 		list.sort_by { |k, v| k }.map { |k, v| v }
-end
+	end
 
 	#list.size > 0 ? list : nil
 end
@@ -150,7 +150,17 @@ result_tmp = {
 	'命名包-漢字' => read_list('han_ext.txt', :H, 7),
 	'命名包-符號' => read_list('sym_ext.txt', :S, 9),
 	'補充符號包' => read_list('sym_ext.txt', :S, 10),
-	'简体测试字-50' => read_list('hans_test50.txt', :HS)
+	'简体测试字-50' => read_list('hans_test50.txt', :HS),
+	'常用字-3500' => read_list('hans_level1.txt', :HS),
+	'扩展字-6500' => (
+  	  	read_list('hans_level1.txt', :HS) +
+   		read_list('hans_level2.txt', :HS)
+	).uniq,
+	'完整规范-8105' => (
+    	read_list('hans_level1.txt', :HS) +
+    	read_list('hans_level2.txt', :HS) +
+    	read_list('hans_level3.txt', :HS)
+	).uniq,
 }
 
 result_tmp['附表：台文全羅'] = verybaselist + result_tmp['本土包-符號']
