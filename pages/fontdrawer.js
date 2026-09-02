@@ -306,10 +306,10 @@ async function createFont(glyphs, gidMap, verts, ccmps) {
 		fullName: settings.fontNameEng + testNo,
 		postScriptName: (settings.fontNameEng + testNo).replace(/[^a-zA-Z0-9]/g, ''), // 去除特殊字符
 		styleName: 'Regular',
-		designer: 'zi-hi.com',
-		designerURL: 'https://zi-hi.com',
-		manufacturer: 'zi-hi.com',
-		manufacturerURL: 'https://zi-hi.com',
+		designer: 'Lannie',
+		designerURL: 'https://github.com/LannieProject',
+		manufacturer: 'Lannie',
+		manufacturerURL: 'https://github.com/LannieProject',,
 
 		unitsPerEm: upm,
 		ascender: 880,
@@ -322,7 +322,7 @@ async function createFont(glyphs, gidMap, verts, ccmps) {
 		font.names[group].fullName[fdrawer.fontLang] = settings.fontNameCJK + testNo;
 	}
 
-	font.tables.os2.achVendID = 'ZIHI';
+	// font.tables.os2.achVendID = 'ZIHI';
 	font.tables.os2.ulCodePageRange1 = fdrawer.codePage; // CodePage
 	font.tables.os2.usWinAscent = 920; // Windows ascent
 	font.tables.os2.usWinDescent = 200; // Windows ascent
